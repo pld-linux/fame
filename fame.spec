@@ -1,13 +1,15 @@
 Summary:	Fast Assembly MPEG Encoder
 Summary(pl):	Szybki koder MPEG w asemblerze
 Name:		fame
-Version:	0.8.7
-Release:	2
+Version:	0.8.10
+Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fame/%{name}-%{version}.tar.gz
 URL:		http://fame.sourceforge.net/
 BuildRequires:	nasm
+BuildRequires:	autoconf
+BuildRequires:	libfame-devel
 BuildRequires:	libstdc++ >= 2.10.0
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,15 +25,16 @@ Koder MPEG zoptymalizowany dla Pentium MMX. Mo¿e ³apaæ ramki z ró¿nych
 zapisywany do pliku lub wysy³any przez sieæ.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 
 %build
+autoconf
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix}
+%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix} mandir=$RPM_BUILD_ROOT%{_mandir} libdir=$RPM_BUILD_ROOT%{_libdir} bindir=$RPM_BUILD_ROOT%{_bindir}
 
 gzip -9nf AUTHORS CHANGES BUGS README TODO
 
@@ -40,10 +43,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {AUTHORS,CHANGES,BUGS,README,TODO}.gz doc
+%doc {AUTHORS,CHANGES,BUGS,README,TODO}.gz
 %attr(755,root,root) %{_bindir}/fame
-%attr(755,root,root) %{_bindir}/mpegnc
-%dir %{_libdir}/fame
-%dir %{_libdir}/fame/*
-%{_libdir}/fame/*/*.so
 %{_mandir}/man1/*
