@@ -5,7 +5,7 @@ Version:	0.8.10
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
-Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fame/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/fame/%{name}-%{version}.tar.gz
 URL:		http://fame.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
