@@ -7,10 +7,11 @@ License:	GPL
 Group:		Applications/Graphics
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fame/%{name}-%{version}.tar.gz
 URL:		http://fame.sourceforge.net/
-BuildRequires:	nasm
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	libfame-devel
 BuildRequires:	libstdc++ >= 2.10.0
+BuildRequires:	nasm
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,13 +29,18 @@ zapisywany do pliku lub wysy³any przez sieæ.
 %setup -q
 
 %build
+rm -f missing
+aclocal
 autoconf
+automake -a -c -f
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix} mandir=$RPM_BUILD_ROOT%{_mandir} libdir=$RPM_BUILD_ROOT%{_libdir} bindir=$RPM_BUILD_ROOT%{_bindir}
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf AUTHORS CHANGES BUGS README TODO
 
