@@ -1,13 +1,13 @@
 Name:		fame
 Summary:	Fast Assembly MPEG Encoder
-Version:	0.1.3
+Version:	0.8.7
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
 Group(pl):	Aplikacje/Grafika
-Source0:	http://www.enst-bretagne.fr/~chappeli/fame/download/%{name}-%{version}.tar.gz
-URL:		http://www.enst-bretagne.fr/~chappeli/fame/
+Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fame/%{name}-%{version}.tar.gz
+URL:		http://fame.sourceforge.net/
 BuildRequires:	nasm
 BuildRequires:	libstdc++ >= 2.10.0
 Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
