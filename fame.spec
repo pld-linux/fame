@@ -13,7 +13,7 @@ BuildRequires:	automake
 BuildRequires:	libfame-devel
 BuildRequires:	libstdc++ >= 2.10.0
 BuildRequires:	nasm
-Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 An MPEG encoder optimized for Pentium MMX technology. It can capture
