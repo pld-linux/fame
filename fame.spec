@@ -1,11 +1,13 @@
-Name:		fame
 Summary:	Fast Assembly MPEG Encoder
+Summary(pl):	Szybki koder MPEG w asemblerze
+Name:		fame
 Version:	0.8.7
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
 Group(pl):	Aplikacje/Grafika
+Group(pt):	Aplicações/Gráficos
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fame/%{name}-%{version}.tar.gz
 URL:		http://fame.sourceforge.net/
 BuildRequires:	nasm
@@ -18,8 +20,13 @@ video from various sources and create an MPEG 1 video elementary
 stream, which is then recorded in a file or sent over a network. This
 is a beta release.
 
+%description -l pl
+Koder MPEG zoptymalizowany dla Pentium MMX. Mo¿e ³apaæ ramki z ró¿nych
+¼róde³ i tworzyæ podstawowy strumieñ MPEG 1, który mo¿e byæ potem
+zapisywany do pliku lub wysy³any przez sieæ.
+
 %prep
-%setup -q -n fame
+%setup -q -n %{name}
 
 %build
 %configure
@@ -29,13 +36,17 @@ is a beta release.
 rm -rf $RPM_BUILD_ROOT
 %{__make} install prefix=$RPM_BUILD_ROOT%{_prefix}
 
+gzip -9nf AUTHORS CHANGES BUGS README TODO
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING CHANGES BUGS README TODO doc/
+%doc {AUTHORS,CHANGES,BUGS,README,TODO}.gz doc
 %attr(755,root,root) %{_bindir}/fame
 %attr(755,root,root) %{_bindir}/mpegnc
+%dir %{_libdir}/fame
+%dir %{_libdir}/fame/*
 %{_libdir}/fame/*/*.so
 %{_mandir}/man1/*
