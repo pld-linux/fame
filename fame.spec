@@ -1,42 +1,41 @@
-Name:      fame
-Summary:   Fast Assembly MPEG Encoder
-Version:   0.1.3
-Release:   1
-Copyright: GPL
-Group:     Applications/Graphics
-Source:    http://www.enst-bretagne.fr/~chappeli/fame/download/%{name}-%{version}.tar.gz
-URL:       http://www.enst-bretagne.fr/~chappeli/fame/
-Packager:  Jan ONDREJ (SAL) <ondrejj@salstar.shadow.sk>
-Buildroot: /tmp/%{name}-root
+Name:		fame
+Summary:	Fast Assembly MPEG Encoder
+Version:	0.1.3
+Release:	1
+License:	GPL
+Group:		Applications/Graphics
+Group(de):	Applikationen/Grafik
+Group(pl):	Aplikacje/Grafika
+Source0:	http://www.enst-bretagne.fr/~chappeli/fame/download/%{name}-%{version}.tar.gz
+URL:		http://www.enst-bretagne.fr/~chappeli/fame/
+BuildRequires:	nasm
+BuildRequires:	libstdc++ >= 2.10.0
+Buildroot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-An MPEG encoder optimized for Pentium MMX technology.
-It can capture video from various sources and create an MPEG 1 video elementary
-stream, which is then recorded in a file or sent over a network.
-This is a beta release.
+An MPEG encoder optimized for Pentium MMX technology. It can capture
+video from various sources and create an MPEG 1 video elementary
+stream, which is then recorded in a file or sent over a network. This
+is a beta release.
 
 %prep
-%setup -n fame
+%setup -q -n fame
 
 %build
-./configure --prefix=/usr
-make
+%configure
+%{__make}
 
 %install
-make install prefix=$RPM_BUILD_ROOT/usr
+rm -rf $RPM_BUILD_ROOT
+%{__make} install prefix=$RPM_BUILD_ROOT%{_prefix}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-, root, root)
+%defattr(644,root,root,755)
 %doc AUTHORS COPYING CHANGES BUGS README TODO doc/
-/usr/bin/fame
-/usr/bin/mpegnc
-/usr/lib/fame/*/*.so
-/usr/man/man1/*
-
-%changelog
-* Mon May 15 2000 Jan ONDREJ (SAL) <ondrejj@salstar.shadow.sk>
-- added mpegnc binary
-- added all modules in /usr/lib/fame/*/
+%attr(755,root,root) %{_bindir}/fame
+%attr(755,root,root) %{_bindir}/mpegnc
+%{_libdir}/fame/*/*.so
+%{_mandir}/man1/*
