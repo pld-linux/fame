@@ -1,12 +1,12 @@
 Summary:	Fast Assembly MPEG Encoder
 Summary(pl):	Szybki koder MPEG w asemblerze
 Name:		fame
-Version:	0.8.10
+Version:	0.9.0
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/fame/%{name}-%{version}.tar.gz
-# Source0-md5:	3374ef642b6f552e8a6e58677cd915b4
+# Source0-md5:	4e70f10250e95d6867160f674b91ca93
 URL:		http://fame.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
