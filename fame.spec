@@ -5,9 +5,6 @@ Version:	0.8.7
 Release:	2
 License:	GPL
 Group:		Applications/Graphics
-Group(de):	Applikationen/Grafik
-Group(pl):	Aplikacje/Grafika
-Group(pt):	Aplicações/Gráficos
 Source0:	ftp://ftp.sourceforge.net/pub/sourceforge/fame/%{name}-%{version}.tar.gz
 URL:		http://fame.sourceforge.net/
 BuildRequires:	nasm
