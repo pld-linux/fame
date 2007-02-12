@@ -1,5 +1,5 @@
 Summary:	Fast Assembly MPEG Encoder
-Summary(pl):	Szybki koder MPEG w asemblerze
+Summary(pl.UTF-8):   Szybki koder MPEG w asemblerze
 Name:		fame
 Version:	0.9.0
 Release:	1
@@ -21,10 +21,10 @@ video from various sources and create an MPEG 1 video elementary
 stream, which is then recorded in a file or sent over a network. This
 is a beta release.
 
-%description -l pl
-Koder MPEG zoptymalizowany dla Pentium MMX. Mo¿e ³apaæ ramki z ró¿nych
-¼róde³ i tworzyæ podstawowy strumieñ MPEG 1, który mo¿e byæ potem
-zapisywany do pliku lub wysy³any przez sieæ.
+%description -l pl.UTF-8
+Koder MPEG zoptymalizowany dla Pentium MMX. MoÅ¼e Å‚apaÄ‡ ramki z rÃ³Å¼nych
+ÅºrÃ³deÅ‚ i tworzyÄ‡ podstawowy strumieÅ„ MPEG 1, ktÃ³ry moÅ¼e byÄ‡ potem
+zapisywany do pliku lub wysyÅ‚any przez sieÄ‡.
 
 %prep
 %setup -q
