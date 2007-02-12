@@ -1,5 +1,5 @@
 Summary:	Fast Assembly MPEG Encoder
-Summary(pl.UTF-8):   Szybki koder MPEG w asemblerze
+Summary(pl.UTF-8):	Szybki koder MPEG w asemblerze
 Name:		fame
 Version:	0.9.0
 Release:	1
